@@ -17,7 +17,7 @@ namespace Blog.Data.Migrations
                     CreateDate = table.Column<DateTime>(nullable: false),
                     Deleted = table.Column<bool>(nullable: false),
                     Name = table.Column<string>(maxLength: 250, nullable: false),
-                    Desctiption = table.Column<string>(nullable: true)
+                    Description = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -77,7 +77,7 @@ namespace Blog.Data.Migrations
                     CreateDate = table.Column<DateTime>(nullable: false),
                     Deleted = table.Column<bool>(nullable: false),
                     UserId = table.Column<int>(nullable: false),
-                    Title = table.Column<string>(maxLength: 50, nullable: false),
+                    Title = table.Column<string>(maxLength: 250, nullable: false),
                     CategoryId = table.Column<int>(nullable: false),
                     Content = table.Column<string>(nullable: true),
                     Hit = table.Column<int>(nullable: false)

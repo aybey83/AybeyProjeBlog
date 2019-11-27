@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Blog.Data.Migrations
 {
     [DbContext(typeof(BlogContext))]
-    [Migration("20191121181702_Initial")]
-    partial class Initial
+    [Migration("20191126163630_Contact")]
+    partial class Contact
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -39,7 +39,7 @@ namespace Blog.Data.Migrations
 
                     b.Property<string>("Title")
                         .IsRequired()
-                        .HasMaxLength(50);
+                        .HasMaxLength(250);
 
                     b.Property<int>("UserId");
 
@@ -62,7 +62,7 @@ namespace Blog.Data.Migrations
 
                     b.Property<bool>("Deleted");
 
-                    b.Property<string>("Desctiption");
+                    b.Property<string>("Description");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -81,15 +81,19 @@ namespace Blog.Data.Migrations
 
                     b.Property<int>("BlogId");
 
-                    b.Property<string>("Content");
+                    b.Property<string>("Content")
+                        .IsRequired()
+                        .HasMaxLength(500);
 
                     b.Property<DateTime>("CreateDate");
 
                     b.Property<bool>("Deleted");
 
-                    b.Property<string>("Email");
+                    b.Property<string>("Email")
+                        .HasMaxLength(320);
 
-                    b.Property<string>("Nickname");
+                    b.Property<string>("Nickname")
+                        .HasMaxLength(50);
 
                     b.Property<int?>("UserId");
 
@@ -104,6 +108,27 @@ namespace Blog.Data.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("Comment");
+                });
+
+            modelBuilder.Entity("Blog.Data.Models.Contact", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("CreateDate");
+
+                    b.Property<bool>("Deleted");
+
+                    b.Property<string>("Message");
+
+                    b.Property<string>("Name");
+
+                    b.Property<string>("Surname");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Contacts");
                 });
 
             modelBuilder.Entity("Blog.Data.Models.Nationality", b =>
@@ -184,7 +209,7 @@ namespace Blog.Data.Migrations
             modelBuilder.Entity("Blog.Data.Models.Comment", b =>
                 {
                     b.HasOne("Blog.Data.Models.Blog", "Blog")
-                        .WithMany("Comment")
+                        .WithMany("Comments")
                         .HasForeignKey("BlogId")
                         .OnDelete(DeleteBehavior.Cascade);
 

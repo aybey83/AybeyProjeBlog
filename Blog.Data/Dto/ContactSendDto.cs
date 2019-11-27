@@ -1,13 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace Blog.Data.Dto
 {
     public class ContactSendDto
     {
-        public string Name { get; set; } 
-        public string Surname { get; set; } 
-        public string Massage { get; set; } 
+        [Required, MinLength(2), MaxLength(50)]
+        public string Name { get; set; }
+
+        [Required, MinLength(2), MaxLength(50)]
+        public string Surname { get; set; }
+
+        [Required, MinLength(3), MaxLength(500)]
+        public string Message { get; set; }
     }
 }

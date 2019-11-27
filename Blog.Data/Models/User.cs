@@ -1,13 +1,11 @@
 ﻿using Blog.Data.Abstraction;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Text;
 
 namespace Blog.Data.Models
 {
-    public class User : Entity 
+    public class User : Entity
     {
         [MinLength(3)]
         [MaxLength(50)]
@@ -21,14 +19,12 @@ namespace Blog.Data.Models
         [MaxLength(50)]
         [Required]
         public string Surname { get; set; }
-
-        public DateTime? BirthDate { get; set; } 
-        public Data.Enums.Gender Gender { get; set; }
+        public DateTime? BirthDate { get; set; }
+        public Enums.Gender Gender { get; set; }
         [MinLength(6)]
         [MaxLength(320)]
         [Required]
         public string Email { get; set; }
-
         public int? NationalityId { get; set; }
         public Nationality Nationality { get; set; }
         [MinLength(8)]
@@ -36,6 +32,5 @@ namespace Blog.Data.Models
         [Required]
         public string Password { get; set; }
         public List<Blog> Blogs { get; set; }
-        
     }
 }

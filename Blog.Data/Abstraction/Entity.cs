@@ -1,6 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Blog.Data.Models;
+using System;
 
 namespace Blog.Data.Abstraction
 {
@@ -9,8 +8,5 @@ namespace Blog.Data.Abstraction
         public int Id { get; set; }
         public DateTime CreateDate { get; set; }
         public bool Deleted { get; set; }
-      
     }
 }
-
-

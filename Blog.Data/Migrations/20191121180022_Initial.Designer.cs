@@ -4,18 +4,20 @@ using Blog.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Blog.Data.Migrations
 {
     [DbContext(typeof(BlogContext))]
-    partial class BlogContextModelSnapshot : ModelSnapshot
+    [Migration("20191121180022_Initial")]
+    partial class Initial
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "2.1.14-servicing-32113")
+                .HasAnnotation("ProductVersion", "2.1.11-servicing-32099")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -79,19 +81,15 @@ namespace Blog.Data.Migrations
 
                     b.Property<int>("BlogId");
 
-                    b.Property<string>("Content")
-                        .IsRequired()
-                        .HasMaxLength(500);
+                    b.Property<string>("Content");
 
                     b.Property<DateTime>("CreateDate");
 
                     b.Property<bool>("Deleted");
 
-                    b.Property<string>("Email")
-                        .HasMaxLength(320);
+                    b.Property<string>("Email");
 
-                    b.Property<string>("Nickname")
-                        .HasMaxLength(50);
+                    b.Property<string>("Nickname");
 
                     b.Property<int?>("UserId");
 
@@ -106,27 +104,6 @@ namespace Blog.Data.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("Comment");
-                });
-
-            modelBuilder.Entity("Blog.Data.Models.Contact", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("CreateDate");
-
-                    b.Property<bool>("Deleted");
-
-                    b.Property<string>("Message");
-
-                    b.Property<string>("Name");
-
-                    b.Property<string>("Surname");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Contacts");
                 });
 
             modelBuilder.Entity("Blog.Data.Models.Nationality", b =>
@@ -146,30 +123,6 @@ namespace Blog.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Nationality");
-                });
-
-            modelBuilder.Entity("Blog.Data.Models.Page", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Content")
-                        .IsRequired();
-
-                    b.Property<DateTime>("CreateDate");
-
-                    b.Property<bool>("Deleted");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(150);
-
-                    b.Property<int>("PageKind");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Pages");
                 });
 
             modelBuilder.Entity("Blog.Data.Models.User", b =>
