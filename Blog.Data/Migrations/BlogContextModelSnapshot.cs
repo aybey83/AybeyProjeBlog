@@ -68,7 +68,12 @@ namespace Blog.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Category");
+                    b.ToTable("Categories");
+
+                    b.HasData(
+                        new { Id = 1, CreateDate = new DateTime(2019, 11, 28, 18, 3, 43, 943, DateTimeKind.Utc), Deleted = false, Description = "...", Name = "Aşk" },
+                        new { Id = 2, CreateDate = new DateTime(2019, 11, 28, 18, 3, 43, 944, DateTimeKind.Utc), Deleted = false, Description = "!!!", Name = "Meşk" }
+                    );
                 });
 
             modelBuilder.Entity("Blog.Data.Models.Comment", b =>
@@ -146,6 +151,10 @@ namespace Blog.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Nationality");
+
+                    b.HasData(
+                        new { Id = 1, Code = "tr", CreateDate = new DateTime(2019, 11, 28, 18, 3, 43, 944, DateTimeKind.Utc), Deleted = false, Name = "Türkiye" }
+                    );
                 });
 
             modelBuilder.Entity("Blog.Data.Models.Page", b =>
@@ -180,6 +189,8 @@ namespace Blog.Data.Migrations
 
                     b.Property<DateTime?>("BirthDate");
 
+                    b.Property<string>("Code");
+
                     b.Property<DateTime>("CreateDate");
 
                     b.Property<bool>("Deleted");
@@ -213,6 +224,10 @@ namespace Blog.Data.Migrations
                     b.HasIndex("NationalityId");
 
                     b.ToTable("Users");
+
+                    b.HasData(
+                        new { Id = 1, BirthDate = new DateTime(1983, 12, 4, 0, 0, 0, 0, DateTimeKind.Unspecified), CreateDate = new DateTime(2019, 11, 28, 18, 3, 43, 944, DateTimeKind.Utc), Deleted = false, Email = "aybey83@gmail.com", Gender = 1, Name = "Aybey", NationalityId = 1, Password = "12345678", Surname = "Bayazıt", Username = "aybey83" }
+                    );
                 });
 
             modelBuilder.Entity("Blog.Data.Models.Blog", b =>

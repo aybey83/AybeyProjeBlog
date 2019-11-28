@@ -16,11 +16,13 @@
             <div><a href="@Url.Action("Index","Home")">Anasayfa</a></div>
             <div><a href="@Url.Action("Index","AboutUs")">Hakkımda</a></div>
             <div><a href="@Url.Action("Index","Contact")">İletişim</a></div>
+            
             @{
                 int? userId = Context.Session.GetInt32("UserId");
                 if (userId != null && userId != 0)
                 {
-                    <div><a href="@Url.Action("Login","User")">Çıkış</a></div>
+                    <div><a href="@Url.Action("New","Blog")">Yeni Yazı</a></div>
+                    <div><a href="@Url.Action("LogoutAction","User")">Çıkış</a></div>
                 }
                 else
                 {
