@@ -1,6 +1,17 @@
 ﻿var Page = {
+    Init: function () {
+        $.ajax({
+            type: "GET",
+            url: "/Module/Categories",
+            data: [],
+            success: function (result) {
+                $("#Module-Categories").html(result);
+            },
+            dataType: "html"
+        });
+    },
     Contact: {
-        Send: function () {
+        Send: function() {
             var name = $("#Name").val();
             var surname = $("#Surname").val();
             var message = $("#Message").val();
@@ -37,7 +48,7 @@
                 contentType: "application/json"
             });
         },
-        Send_Callback: function (result) {
+        Send_Callback: function(result) {
             $("#Contact-Index-Sending").hide();
             $("#Contact-Index-Sent").show();
             console.log(result);
@@ -99,9 +110,12 @@
             {
                 var title = $("#Title").val();
                 var content = $("#Content").val();
+                var categoryId = parseInt($("#Category").val());
+
                 var data = {
                     Title: title,
-                    Content: content
+                    Content: content,
+                    CategoryId: categoryId
                 };
 
                 $.ajax
@@ -116,19 +130,15 @@
                         contentType: "application/json"
                     }
                     ); 
-            }
-
-         
-        },
-        Save_Callback: function (result)
-        {
-            console.log(result);
-        },
-        Save_Callback_Error: function (request, status, error)
-        {
-            console.log(request);
-            console.log(status);
-            console.log(error);
-        }
+            },
+            Save_Callback: function (result) {
+                window.location.href = "/blog/detail/" + result.id;            
+            },
+            Save_Callback_Error: function (request, status, error) {
+                console.log(request);
+                console.log(status);
+                console.log(error);
+            }         
+        }        
     }
 }

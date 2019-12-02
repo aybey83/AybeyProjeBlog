@@ -1,12 +1,21 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Blog.Data.Context;
+using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Blog.Web.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly BlogContext _blogContext;
+        public HomeController(BlogContext blogContext)
+        {
+            _blogContext = blogContext;
+        }
         public IActionResult Index()
         {
-            return View();
+            List<Blog.Data.Models.Blog> blogs = _blogContext.Blogs.OrderByDescending(a => a.CreateDate).ToList(); 
+            return View(blogs);
         }
     }
 }
