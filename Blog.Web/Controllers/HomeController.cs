@@ -1,5 +1,6 @@
 ﻿using Blog.Data.Context;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -14,7 +15,7 @@ namespace Blog.Web.Controllers
         }
         public IActionResult Index()
         {
-            List<Blog.Data.Models.Blog> blogs = _blogContext.Blogs.OrderByDescending(a => a.CreateDate).ToList(); 
+            List<Blog.Data.Models.Blog> blogs = _blogContext.Blogs.Include(a => a.User).OrderByDescending(a => a.CreateDate).ToList(); 
             return View(blogs);
         }
     }
