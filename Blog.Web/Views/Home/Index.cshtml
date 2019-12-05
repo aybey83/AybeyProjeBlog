@@ -10,19 +10,19 @@
 <div class="main">
     @{
         foreach (var blog in Model)
-
         {
             <article>
-                <header><h1><a href="@Url.Action("Detail","Blog", new { id = blog.Id })">@blog.Title</a></h1></header>
+                <header>
+                    <h1><a href="@Url.Action("Detail","Blog", new {id = blog.Id})">@blog.Title</a></h1>
+                </header>
                 <div class="meta">@blog.CreateDate.ToString("d"),&nbsp;<span>@blog.User.Username</span>,&nbsp;<a href="#">4 Comments</a></div>
                 <div class="entry">
                     <p>@blog.Content</p>
-                    <p><a href="@Url.Action("Detail","Blog", new { id = blog.Id })" class="more-link">Devamı ...</a></p>
+                    <p><a href="@Url.Action("Detail","Blog", new {id = blog.Id})" class="more-link">Devamı...</a></p>
                 </div>
             </article>
         }
     }
-    
     <div class="pagination">
         <div class="left"><a href="#">Older posts</a></div>
         <div class="right"><a href="#">Newer posts</a></div>
@@ -68,13 +68,13 @@
                 <div class="post-thumb"><a rel="prettyPhoto[biopic_recent_work_gal]" href="/theme/images/portfolio/Bulkhead.jpg"><img width="50" height="50" title="Bulkhead" alt="Bulkhead" src="/theme/images/portfolio/Bulkhead-50x50.jpg"></a></div>
             </li>
             <li>
-                <div class="post-thumb"><a rel="prettyPhoto[biopic_recent_work_gal]" href="images/portfolio/In_My_Dreams.jpg"><img width="50" height="50" title="In_My_Dreams" alt="In_My_Dreams" src="images/portfolio/In_My_Dreams-50x50.jpg"></a></div>
+                <div class="post-thumb"><a rel="prettyPhoto[biopic_recent_work_gal]" href="/theme/images/portfolio/In_My_Dreams.jpg"><img width="50" height="50" title="In_My_Dreams" alt="In_My_Dreams" src="/theme/images/portfolio/In_My_Dreams-50x50.jpg"></a></div>
             </li>
             <li>
-                <div class="post-thumb"><a rel="prettyPhoto[biopic_recent_work_gal]" href="images/portfolio/Daim.jpg"><img width="50" height="50" title="Daim" alt="Daim" src="images/portfolio/Daim-50x50.jpg"></a></div>
+                <div class="post-thumb"><a rel="prettyPhoto[biopic_recent_work_gal]" href="/theme/images/portfolio/Daim.jpg"><img width="50" height="50" title="Daim" alt="Daim" src="/theme/images/portfolio/Daim-50x50.jpg"></a></div>
             </li>
             <li>
-                <div class="post-thumb"><a rel="prettyPhoto[biopic_recent_work_gal]" href="images/portfolio/Bumble_Bee.jpg"><img width="50" height="50" title="Bumble_Bee" alt="Bumble_Bee" src="images/portfolio/Bumble_Bee-50x50.jpg"></a></div>
+                <div class="post-thumb"><a rel="prettyPhoto[biopic_recent_work_gal]" href="/theme/images/portfolio/Bumble_Bee.jpg"><img width="50" height="50" title="Bumble_Bee" alt="Bumble_Bee" src="/theme/images/portfolio/Bumble_Bee-50x50.jpg"></a></div>
             </li>
         </ul>
     </div>

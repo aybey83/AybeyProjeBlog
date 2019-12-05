@@ -10,12 +10,12 @@ namespace Blog.Data.Migrations
             migrationBuilder.InsertData(
                 table: "Category",
                 columns: new[] { "Id", "CreateDate", "Deleted", "Description", "Name" },
-                values: new object[] { 1, new DateTime(2019, 11, 28, 17, 41, 37, 183, DateTimeKind.Utc), false, "...", "Aşk" });
+                values: new object[] { 1, new DateTime(2019, 11, 28, 17, 42, 12, 726, DateTimeKind.Utc), false, "...", "Aşk" });
 
             migrationBuilder.InsertData(
                 table: "Category",
                 columns: new[] { "Id", "CreateDate", "Deleted", "Description", "Name" },
-                values: new object[] { 2, new DateTime(2019, 11, 28, 17, 41, 37, 184, DateTimeKind.Utc), false, "!!!", "Meşk" });
+                values: new object[] { 2, new DateTime(2019, 11, 28, 17, 42, 12, 727, DateTimeKind.Utc), false, "!!!", "Meşk" });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

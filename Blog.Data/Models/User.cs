@@ -32,6 +32,5 @@ namespace Blog.Data.Models
         [Required]
         public string Password { get; set; }
         public List<Blog> Blogs { get; set; }
-        public string Code { get; internal set; }
     }
 }

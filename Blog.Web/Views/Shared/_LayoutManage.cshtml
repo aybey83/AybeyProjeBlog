@@ -1,19 +1,26 @@
-﻿<!doctype html>
-
+﻿@using Microsoft.AspNetCore.Http
+<!doctype html>
 <html>
 <head>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
             integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
             crossorigin="anonymous"></script>
-
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js" integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm" crossorigin="anonymous"></script>
-
-</head>
+    <script src="~/js/Page.js"></script>
+    </head>
 <body>
     <div class="container">
         <div class="row">
-            <div class="col-12">Menü</div>
+            <div class="col-12">
+                @{
+                    if (Context.Session.GetInt32("userId") != null)
+                    {
+                        <a href="@Url.Action("LogoutAction", "Manage")">Çıkış Yap</a> 
+                        <a href="@Url.Action("ManageBlog", "Manage", new { id = 0 })">Yeni Yazı</a>
+                    }
+                }
+            </div>
         </div>
         @RenderBody()
     </div>

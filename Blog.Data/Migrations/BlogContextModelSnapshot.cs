@@ -71,8 +71,8 @@ namespace Blog.Data.Migrations
                     b.ToTable("Categories");
 
                     b.HasData(
-                        new { Id = 1, CreateDate = new DateTime(2019, 11, 28, 18, 3, 43, 943, DateTimeKind.Utc), Deleted = false, Description = "...", Name = "Aşk" },
-                        new { Id = 2, CreateDate = new DateTime(2019, 11, 28, 18, 3, 43, 944, DateTimeKind.Utc), Deleted = false, Description = "!!!", Name = "Meşk" }
+                        new { Id = 1, CreateDate = new DateTime(2019, 11, 28, 18, 2, 30, 401, DateTimeKind.Utc), Deleted = false, Description = "...", Name = "Aşk" },
+                        new { Id = 2, CreateDate = new DateTime(2019, 11, 28, 18, 2, 30, 402, DateTimeKind.Utc), Deleted = false, Description = "!!!", Name = "Meşk" }
                     );
                 });
 
@@ -153,7 +153,7 @@ namespace Blog.Data.Migrations
                     b.ToTable("Nationality");
 
                     b.HasData(
-                        new { Id = 1, Code = "tr", CreateDate = new DateTime(2019, 11, 28, 18, 3, 43, 944, DateTimeKind.Utc), Deleted = false, Name = "Türkiye" }
+                        new { Id = 1, Code = "tr", CreateDate = new DateTime(2019, 11, 28, 18, 2, 30, 402, DateTimeKind.Utc), Deleted = false, Name = "Türkiye" }
                     );
                 });
 
@@ -188,8 +188,6 @@ namespace Blog.Data.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<DateTime?>("BirthDate");
-
-                    b.Property<string>("Code");
 
                     b.Property<DateTime>("CreateDate");
 
@@ -226,7 +224,7 @@ namespace Blog.Data.Migrations
                     b.ToTable("Users");
 
                     b.HasData(
-                        new { Id = 1, BirthDate = new DateTime(1983, 12, 4, 0, 0, 0, 0, DateTimeKind.Unspecified), CreateDate = new DateTime(2019, 11, 28, 18, 3, 43, 944, DateTimeKind.Utc), Deleted = false, Email = "aybey83@gmail.com", Gender = 1, Name = "Aybey", NationalityId = 1, Password = "12345678", Surname = "Bayazıt", Username = "aybey83" }
+                        new { Id = 1, BirthDate = new DateTime(1986, 8, 4, 0, 0, 0, 0, DateTimeKind.Unspecified), CreateDate = new DateTime(2019, 11, 28, 18, 2, 30, 402, DateTimeKind.Utc), Deleted = false, Email = "e.dedeoglu@gmail.com", Gender = 1, Name = "Erçin", NationalityId = 1, Password = "12345678", Surname = "Dedeoğlu", Username = "ercin" }
                     );
                 });
 

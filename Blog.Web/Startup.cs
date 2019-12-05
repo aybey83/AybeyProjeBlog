@@ -25,8 +25,6 @@ namespace Blog.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDistributedMemoryCache();
-
             services.AddSession(options =>
             {
                 // Set a short timeout for easy testing.
@@ -36,15 +34,13 @@ namespace Blog.Web
                 options.Cookie.IsEssential = true;
             });
 
-            services.AddDbContext<BlogContext>(options => options.UseSqlServer("Server=localhost;Database=AybeyProjeBlog;User Id=sa;Password=123;"));
+            services.AddDbContext<BlogContext>(options => options.UseSqlServer("Server=localhost;Database=YMS8330_Blog;User Id=sa;Password=123;"));
 
             services.Configure<CookiePolicyOptions>(options =>
             {
                 // This lambda determines whether user consent for non-essential cookies is needed for a given request.
-                //options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
-
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }

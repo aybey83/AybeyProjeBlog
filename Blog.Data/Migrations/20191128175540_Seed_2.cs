@@ -7,34 +7,29 @@ namespace Blog.Data.Migrations
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.AddColumn<string>(
-                name: "Code",
-                table: "Users",
-                nullable: true);
-
             migrationBuilder.UpdateData(
                 table: "Category",
                 keyColumn: "Id",
                 keyValue: 1,
                 column: "CreateDate",
-                value: new DateTime(2019, 11, 28, 17, 56, 33, 806, DateTimeKind.Utc));
+                value: new DateTime(2019, 11, 28, 17, 55, 39, 954, DateTimeKind.Utc));
 
             migrationBuilder.UpdateData(
                 table: "Category",
                 keyColumn: "Id",
                 keyValue: 2,
                 column: "CreateDate",
-                value: new DateTime(2019, 11, 28, 17, 56, 33, 808, DateTimeKind.Utc));
+                value: new DateTime(2019, 11, 28, 17, 55, 39, 955, DateTimeKind.Utc));
 
             migrationBuilder.InsertData(
                 table: "Nationality",
                 columns: new[] { "Id", "Code", "CreateDate", "Deleted", "Name" },
-                values: new object[] { 1, "tr", new DateTime(2019, 11, 28, 17, 56, 33, 808, DateTimeKind.Utc), false, "Türkiye" });
+                values: new object[] { 1, "tr", new DateTime(2019, 11, 28, 17, 55, 39, 955, DateTimeKind.Utc), false, "Türkiye" });
 
             migrationBuilder.InsertData(
                 table: "Users",
-                columns: new[] { "Id", "BirthDate", "Code", "CreateDate", "Deleted", "Email", "Gender", "Name", "NationalityId", "Password", "Surname", "Username" },
-                values: new object[] { 1, new DateTime(1983, 12, 4, 0, 0, 0, 0, DateTimeKind.Unspecified), null, new DateTime(2019, 11, 28, 17, 56, 33, 808, DateTimeKind.Utc), false, "aybey83@gmail.com", 1, "Aybey", 1, "12345678", "Bayazıt", "aybey83" });
+                columns: new[] { "Id", "BirthDate", "CreateDate", "Deleted", "Email", "Gender", "Name", "NationalityId", "Password", "Surname", "Username" },
+                values: new object[] { 1, new DateTime(1986, 8, 4, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2019, 11, 28, 17, 55, 39, 955, DateTimeKind.Utc), false, "e.dedeoglu@gmail.com", 1, "Erçin", 1, "12345678", "Dedeoğlu", "ercin" });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -49,23 +44,19 @@ namespace Blog.Data.Migrations
                 keyColumn: "Id",
                 keyValue: 1);
 
-            migrationBuilder.DropColumn(
-                name: "Code",
-                table: "Users");
-
             migrationBuilder.UpdateData(
                 table: "Category",
                 keyColumn: "Id",
                 keyValue: 1,
                 column: "CreateDate",
-                value: new DateTime(2019, 11, 28, 17, 41, 37, 183, DateTimeKind.Utc));
+                value: new DateTime(2019, 11, 28, 17, 42, 12, 726, DateTimeKind.Utc));
 
             migrationBuilder.UpdateData(
                 table: "Category",
                 keyColumn: "Id",
                 keyValue: 2,
                 column: "CreateDate",
-                value: new DateTime(2019, 11, 28, 17, 41, 37, 184, DateTimeKind.Utc));
+                value: new DateTime(2019, 11, 28, 17, 42, 12, 727, DateTimeKind.Utc));
         }
     }
 }

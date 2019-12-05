@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Blog.Data.Context;
 using Blog.Data.Dto;
+using Blog.Data.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore.Query.ExpressionTranslators.Internal;
 
 namespace Blog.Web.Controllers
 {
@@ -17,13 +18,14 @@ namespace Blog.Web.Controllers
         {
             _blogContext = blogContext;
         }
+
         public IActionResult New()
         {
-            List<Data.Models.Category> categories = _blogContext.Categories.Where(a => !a.Deleted).ToList();
+            List<Category> categories = _blogContext.Categories.Where(a => !a.Deleted).ToList();
             return View(categories);
         }
 
-        public IActionResult Add([FromBody]BlogAddDto blogAdd)
+        public IActionResult Add([FromBody] BlogAddDto blogAdd)
         {
             int userId = HttpContext.Session.GetInt32("UserId").Value;
             Blog.Data.Models.Blog blog = new Blog.Data.Models.Blog()
@@ -36,8 +38,10 @@ namespace Blog.Web.Controllers
                 Deleted = false,
                 CategoryId = blogAdd.CategoryId
             };
+
             _blogContext.Blogs.Add(blog);
             _blogContext.SaveChanges();
+
             return Ok(blog);
         }
 

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Blog.Data.Dto
+﻿namespace Blog.Data.Dto
 {
     public class BlogAddDto
     {

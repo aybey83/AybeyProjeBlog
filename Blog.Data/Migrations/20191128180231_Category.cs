@@ -29,28 +29,28 @@ namespace Blog.Data.Migrations
                 keyColumn: "Id",
                 keyValue: 1,
                 column: "CreateDate",
-                value: new DateTime(2019, 11, 28, 18, 3, 43, 943, DateTimeKind.Utc));
+                value: new DateTime(2019, 11, 28, 18, 2, 30, 401, DateTimeKind.Utc));
 
             migrationBuilder.UpdateData(
                 table: "Categories",
                 keyColumn: "Id",
                 keyValue: 2,
                 column: "CreateDate",
-                value: new DateTime(2019, 11, 28, 18, 3, 43, 944, DateTimeKind.Utc));
+                value: new DateTime(2019, 11, 28, 18, 2, 30, 402, DateTimeKind.Utc));
 
             migrationBuilder.UpdateData(
                 table: "Nationality",
                 keyColumn: "Id",
                 keyValue: 1,
                 column: "CreateDate",
-                value: new DateTime(2019, 11, 28, 18, 3, 43, 944, DateTimeKind.Utc));
+                value: new DateTime(2019, 11, 28, 18, 2, 30, 402, DateTimeKind.Utc));
 
             migrationBuilder.UpdateData(
                 table: "Users",
                 keyColumn: "Id",
                 keyValue: 1,
                 column: "CreateDate",
-                value: new DateTime(2019, 11, 28, 18, 3, 43, 944, DateTimeKind.Utc));
+                value: new DateTime(2019, 11, 28, 18, 2, 30, 402, DateTimeKind.Utc));
 
             migrationBuilder.AddForeignKey(
                 name: "FK_Blogs_Categories_CategoryId",
@@ -85,28 +85,28 @@ namespace Blog.Data.Migrations
                 keyColumn: "Id",
                 keyValue: 1,
                 column: "CreateDate",
-                value: new DateTime(2019, 11, 28, 17, 56, 33, 806, DateTimeKind.Utc));
+                value: new DateTime(2019, 11, 28, 17, 55, 39, 954, DateTimeKind.Utc));
 
             migrationBuilder.UpdateData(
                 table: "Category",
                 keyColumn: "Id",
                 keyValue: 2,
                 column: "CreateDate",
-                value: new DateTime(2019, 11, 28, 17, 56, 33, 808, DateTimeKind.Utc));
+                value: new DateTime(2019, 11, 28, 17, 55, 39, 955, DateTimeKind.Utc));
 
             migrationBuilder.UpdateData(
                 table: "Nationality",
                 keyColumn: "Id",
                 keyValue: 1,
                 column: "CreateDate",
-                value: new DateTime(2019, 11, 28, 17, 56, 33, 808, DateTimeKind.Utc));
+                value: new DateTime(2019, 11, 28, 17, 55, 39, 955, DateTimeKind.Utc));
 
             migrationBuilder.UpdateData(
                 table: "Users",
                 keyColumn: "Id",
                 keyValue: 1,
                 column: "CreateDate",
-                value: new DateTime(2019, 11, 28, 17, 56, 33, 808, DateTimeKind.Utc));
+                value: new DateTime(2019, 11, 28, 17, 55, 39, 955, DateTimeKind.Utc));
 
             migrationBuilder.AddForeignKey(
                 name: "FK_Blogs_Category_CategoryId",

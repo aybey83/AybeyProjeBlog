@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Blog.Data.Migrations
 {
     [DbContext(typeof(BlogContext))]
-    [Migration("20191128174137_Seed")]
-    partial class Seed
+    [Migration("20191128175540_Seed_2")]
+    partial class Seed_2
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -73,8 +73,8 @@ namespace Blog.Data.Migrations
                     b.ToTable("Category");
 
                     b.HasData(
-                        new { Id = 1, CreateDate = new DateTime(2019, 11, 28, 17, 41, 37, 183, DateTimeKind.Utc), Deleted = false, Description = "...", Name = "Aşk" },
-                        new { Id = 2, CreateDate = new DateTime(2019, 11, 28, 17, 41, 37, 184, DateTimeKind.Utc), Deleted = false, Description = "!!!", Name = "Meşk" }
+                        new { Id = 1, CreateDate = new DateTime(2019, 11, 28, 17, 55, 39, 954, DateTimeKind.Utc), Deleted = false, Description = "...", Name = "Aşk" },
+                        new { Id = 2, CreateDate = new DateTime(2019, 11, 28, 17, 55, 39, 955, DateTimeKind.Utc), Deleted = false, Description = "!!!", Name = "Meşk" }
                     );
                 });
 
@@ -153,6 +153,10 @@ namespace Blog.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Nationality");
+
+                    b.HasData(
+                        new { Id = 1, Code = "tr", CreateDate = new DateTime(2019, 11, 28, 17, 55, 39, 955, DateTimeKind.Utc), Deleted = false, Name = "Türkiye" }
+                    );
                 });
 
             modelBuilder.Entity("Blog.Data.Models.Page", b =>
@@ -220,6 +224,10 @@ namespace Blog.Data.Migrations
                     b.HasIndex("NationalityId");
 
                     b.ToTable("Users");
+
+                    b.HasData(
+                        new { Id = 1, BirthDate = new DateTime(1986, 8, 4, 0, 0, 0, 0, DateTimeKind.Unspecified), CreateDate = new DateTime(2019, 11, 28, 17, 55, 39, 955, DateTimeKind.Utc), Deleted = false, Email = "e.dedeoglu@gmail.com", Gender = 1, Name = "Erçin", NationalityId = 1, Password = "12345678", Surname = "Dedeoğlu", Username = "ercin" }
+                    );
                 });
 
             modelBuilder.Entity("Blog.Data.Models.Blog", b =>

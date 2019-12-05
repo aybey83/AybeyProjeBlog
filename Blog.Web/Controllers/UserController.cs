@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using Blog.Data.Context;
 using Blog.Data.Dto;
 using Blog.Data.Models;
@@ -25,7 +22,6 @@ namespace Blog.Web.Controllers
         }
 
         [HttpPost]
-
         public IActionResult LoginAction([FromBody]UserLoginDto userLogin)
         {
             if (!ModelState.IsValid)
@@ -33,19 +29,19 @@ namespace Blog.Web.Controllers
                 return BadRequest("Invalid validation");
             }
 
-            Data.Models.User user = _blogContext.Users.SingleOrDefault
-                (a => !a.Deleted && a.Email == userLogin.Email && a.Password == userLogin.Password);
+            User user = _blogContext.Users.SingleOrDefault(a =>
+                !a.Deleted && a.Email == userLogin.Email && a.Password == userLogin.Password);
 
             if (user != null)
             {
                 HttpContext.Session.SetInt32("UserId", user.Id);
+
                 return Ok(user);
             }
             else
             {
                 return Unauthorized();
             }
-
         }
 
         [HttpGet]
@@ -54,7 +50,6 @@ namespace Blog.Web.Controllers
             HttpContext.Session.Clear();
 
             return RedirectToAction("Index", "Home");
-
         }
     }
 }
